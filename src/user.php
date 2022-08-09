@@ -54,7 +54,7 @@ class User
     {
         global $connection;
         $message = ['is_present' => true, 'message' => ''];
-        $query = "SELECT * FROM User WHERE email='{$this->email}'";
+        $query = "SELECT * FROM user WHERE email='{$this->email}'";
         $res = mysqli_query($connection, $query);
         $counts = mysqli_num_rows($res);
         if ($counts > 0) {

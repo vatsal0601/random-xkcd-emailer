@@ -1,11 +1,6 @@
 <?php
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'vatsal');
-define('DB_PASSWORD', 'vatsal@123');
-define('DB_NAME', 'demo');
-
-$connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$connection = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_USER']);
 
 if ($connection->connect_error) {
     die('Connection to database failed' . $connection->connect_error);
