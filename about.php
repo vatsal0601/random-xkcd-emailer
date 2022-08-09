@@ -20,8 +20,8 @@
             About the project
         </h1>
         <div>
-            <p class="p">This project is built using HTML, CSS, JavaScript, PHP, and MySQL for storing the data. You can find the complete code for this project on this GitHub repository.</p>
-            <p class="p">This was an assignment project given to me by team <a href="https://rtcamp.com" class="a">rtCamp</a>. If you want to know more about me and my projects, then you can visit my <a href="https://vatsalsakariya.vercel.app" class="a">portfolio</a> or my <a href="https://github.com/vatsal0601" class="a">GitHub profile.</a></p>
+            <p class="p">This project is built using HTML, CSS, JavaScript, PHP, and MySQL for storing the data. You can find the complete code for this project on this <a href="https://github.com/vatsal0601/random-xkcd-emailer" class="a">GitHub repository</a>.</p>
+            <p class="p">This was an assignment project given to me by team <a href="https://rtcamp.com" class="a">rtCamp</a>. If you want to know more about me and my projects, then you can visit my <a href="https://vatsalsakariya.vercel.app" class="a">portfolio</a> or my <a href="https://github.com/vatsal0601" class="a">GitHub profile</a>.</p>
         </div>
     </main>
     <?php include __DIR__ . "./components/footer.php"; ?>
