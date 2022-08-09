@@ -2,6 +2,8 @@
 
 This project is built using HTML, CSS, JavaScript, PHP, and MySQL for storing the data.
 
+The live demo link for the app: https://emaaail.herokuapp.com/index.php
+
 ## Requirements
 
 -   PHP 8 and above
