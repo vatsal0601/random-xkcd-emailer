@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
-use mysqli;
-
-require_once dirname(__DIR__, 1) . "./configs/database.php";
+require_once dirname(__DIR__, 1) . "/configs/database.php";
 
 
 class User

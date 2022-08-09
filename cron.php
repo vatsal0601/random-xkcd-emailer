@@ -3,8 +3,8 @@
 use App\Email;
 use App\User;
 
-require_once __DIR__ . "./src/user.php";
-require_once __DIR__ . "./src/email.php";
+require_once __DIR__ . "/src/user.php";
+require_once __DIR__ . "/src/email.php";
 
 $user = new User('', '');
 $users = $user->get_all_users();

@@ -3,8 +3,8 @@
 use App\Email;
 use App\User;
 
-require_once __DIR__ . "./src/user.php";
-require_once __DIR__ . "./src/email.php";
+require_once __DIR__ . "/src/user.php";
+require_once __DIR__ . "/src/email.php";
 
 if (isset($_POST['name']) && isset($_POST['email'])) {
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -33,6 +33,7 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emaaail - Getting Started</title>
+    <link rel="icon" href="./assets/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -42,7 +43,7 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
 </head>
 
 <body>
-    <?php include __DIR__ . "./components/navbar.php"; ?>
+    <?php include __DIR__ . "/components/navbar.php"; ?>
     <main class="container main">
         <section class="hero">
             <h1 class="display hero-heading">
@@ -91,7 +92,7 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
             </form>
         </section>
     </main>
-    <?php include __DIR__ . "./components/footer.php"; ?>
+    <?php include __DIR__ . "/components/footer.php"; ?>
 </body>
 
 </html>
