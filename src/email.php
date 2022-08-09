@@ -1,0 +1,58 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App;
+
+class Email
+{
+    public string $name;
+    public string $email;
+
+    function __construct(string $name, string $email)
+    {
+        $this->name = $name;
+        $this->email = $email;
+    }
+
+    function get_random_comic(): array
+    {
+        $random = mt_rand(1, 2500);
+        $url = "https://xkcd.com/{$random}/info.0.json";
+
+        $ch = curl_init();
+        curl_setopt_array($ch, [CURLOPT_URL => $url, CURLOPT_RETURNTRANSFER => true]);
+        $res = curl_exec($ch);
+        $res = json_decode($res);
+        curl_close($ch);
+        return ['title' => $res->safe_title, 'url' => $res->img, 'alt' => $res->alt];
+    }
+
+    function send_email(array $payload): void
+    {
+        $info = ['to' => $this->email, 'name' => $this->name];
+        $url = 'https://script.google.com/macros/s/AKfycby_u-6LPZgCgYadeGgj_QPDTWDJiD1RSDMkElgKWqwOWXz7xPSJlmclSq9kIuE7Rbe5VQ/exec';
+        $ch = curl_init();
+        curl_setopt_array(
+            $ch,
+            [
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POSTFIELDS => http_build_query(array_merge($info, $payload))
+            ]
+        );
+        $res = curl_exec($ch);
+        $res = json_decode($res);
+        curl_close($ch);
+    }
+
+    function send_token(string $token): void
+    {
+        $this->send_email(['type' => 'token', 'subject' => 'Registration token for Emaaail', 'token' => $token]);
+    }
+
+    function send_comic(string $title, string $alt, string $url): void
+    {
+        $this->send_email(['type' => 'comic', 'subject' => 'Emaaail Random Comic', 'title' => $title, 'alt' => $alt, 'url' => $url]);
+    }
+}
