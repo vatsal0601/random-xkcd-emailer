@@ -31,12 +31,11 @@ class Email
     function send_email(array $payload): void
     {
         $info = ['to' => $this->email, 'name' => $this->name];
-        $url = 'https://script.google.com/macros/s/AKfycby_u-6LPZgCgYadeGgj_QPDTWDJiD1RSDMkElgKWqwOWXz7xPSJlmclSq9kIuE7Rbe5VQ/exec';
         $ch = curl_init();
         curl_setopt_array(
             $ch,
             [
-                CURLOPT_URL => $url,
+                CURLOPT_URL => $_ENV['GOOGLE_APP_SCRIPT_URL'],
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POSTFIELDS => http_build_query(array_merge($info, $payload))
             ]
