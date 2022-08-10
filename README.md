@@ -11,21 +11,23 @@ The live demo link for the app: https://emaaail.herokuapp.com/index.php
 
 ## Configuration
 
-After cloning the repository you need to add your database details in the `configs/database.php` file.
-
-```php
-// configs/database.php
-define('DB_HOST', 'YOUR_HOST_NAME');
-define('DB_USER', 'YOUR_DATABASE_USER');
-define('DB_PASSWORD', 'YOUR_DATABASE_PASSWORD');
-define('DB_NAME', 'YOUR_DATABASE_NAME');
-```
-
-After that you need to go to [google scripts](https://script.google.com) and create new project.
+After cloning the repository you need to go to [google scripts](https://script.google.com) and create new project.
 
 -   In the newly created project now go to `code.gs` file and paste all the content from `email/code.gs` file.
 -   Also create two new files (`comic.html` and `token.html`) and past their content in them.
--   Now deploy the project (create new web app) with the default setting (make sure to change the access to anyone if not anyone) after that copy the app url and open the `src/email.php`. On line 34 change the url to your url
+-   Now deploy the project (create new web app) with the default setting (make sure to change the access to anyone if not anyone) after that copy the app url and add as environmental variable.
+
+After that you need to configure environmental variables for the project.
+
+_Note: as I am using remotemysql as my database the database name and user are same for me; you can change this by going to `configs/database.php` file._
+
+```env
+DB_HOST=<your-database-host>
+DB_PASSWORD=<your-database-password>
+DB_USER=<your-database-user>
+GOOGLE_APP_SCRIPT_URL=<your-google-app-script-url>
+CRON_SECRET=<your-cron-secret> # you can set this value to any secret you like
+```
 
 ## Folder Structure
 
@@ -39,7 +41,7 @@ After that you need to go to [google scripts](https://script.google.com) and cre
 -   `getting-started.php` is the page where user enter their info
 -   `token-verification.php` is the page for verifying the user's email address by using token
 -   `success.php` is the page where user user reaches after successfully subscribing/unsubscribing
--   `cron.php` is used for sending comics to the subscribed users every 5 minutes
+-   `cron.php` is used for sending comics to the subscribed users every 5 minutes. This page only accepts the post request which contains the `cron-secret` as its parameter. If the `cron-secret` and env variable `CRON_SECRET` are same only then the emails are sent.
 
 ## Usage
 
