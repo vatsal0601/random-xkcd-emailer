@@ -46,3 +46,5 @@ CRON_SECRET=<your-cron-secret> # you can set this value to any secret you like
 ## Usage
 
 Run `index.php` in your browser.
+
+**_Google Apps Script only allows 100 emails per day so if the limit is exceeded please try again next day_**
