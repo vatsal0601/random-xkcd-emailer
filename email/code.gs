@@ -8,6 +8,7 @@ function doPost(e) {
 		).setMimeType(ContentService.MimeType.JSON);
 
 	var template;
+	var attachments = [];
 	switch (e.parameter.type) {
 		case "token":
 			template = HtmlService.createTemplateFromFile("token");
@@ -18,7 +19,10 @@ function doPost(e) {
 			template.title = e.parameter.title;
 			template.url = e.parameter.url;
 			template.alt = e.parameter.alt;
-			template.unsubscribe = e.parameter.unsubscribe;
+			template.email = e.parameter.to;
+			var res = UrlFetchApp.fetch(e.parameter.url);
+			var fetchBlob = res.getBlob();
+			attachments.push(fetchBlob);
 			break;
 		default:
 			break;
@@ -31,5 +35,6 @@ function doPost(e) {
 		subject: e.parameter.subject,
 		htmlBody: body,
 		name: "Vatsal from Emaaail",
+		attachments: attachments,
 	});
 }
