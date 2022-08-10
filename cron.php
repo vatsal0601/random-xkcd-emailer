@@ -8,7 +8,7 @@ require_once __DIR__ . "/src/email.php";
 
 header('Content-type: application/json');
 
-if (isset($_POST['cron-secret']) && $_POST['cron-secret'] === $_ENV['CRON_SECRET']) {
+if (isset($_GET['cron-secret']) && $_GET['cron-secret'] === $_ENV['CRON_SECRET']) {
     $user = new User('', '');
     $users = $user->get_all_users();
 

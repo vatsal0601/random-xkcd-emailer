@@ -41,7 +41,7 @@ CRON_SECRET=<your-cron-secret> # you can set this value to any secret you like
 -   `getting-started.php` is the page where user enter their info
 -   `token-verification.php` is the page for verifying the user's email address by using token
 -   `success.php` is the page where user user reaches after successfully subscribing/unsubscribing
--   `cron.php` is used for sending comics to the subscribed users every 5 minutes. This page only accepts the post request which contains the `cron-secret` as its parameter. If the `cron-secret` and env variable `CRON_SECRET` are same only then the emails are sent.
+-   `cron.php` is used for sending comics to the subscribed users every 5 minutes. This page only accepts the get request which contains the `cron-secret` as its parameter. If the `cron-secret` and env variable `CRON_SECRET` are same only then the emails are sent.
 
 ## Usage
 
