@@ -43,6 +43,8 @@ CRON_SECRET=<your-cron-secret> # you can set this value to any secret you like
 -   `success.php` is the page where user user reaches after successfully subscribing/unsubscribing
 -   `cron.php` is used for sending comics to the subscribed users every 5 minutes. This page only accepts the get request which contains the `secret` as its parameter. If the `secret` and env variable `CRON_SECRET` are same only then the emails are sent.
 
+_The reason why cron job is in the root dir is because I'm using [cron-job.org](https://cron-job.org/en/); It makes a GET request to the project every 5 minutes and hence the emails are sent to the subscribed users_
+
 ## Usage
 
 Run `index.php` in your browser.
