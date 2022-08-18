@@ -6,17 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emaaail</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="./assets/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <script src="./assets/js/index.js" defer></script>
 </head>
 
 <body>
-    <?php include __DIR__ . "/components/navbar.php"; ?>
+    <?php require __DIR__ . '/components/navbar.php'; ?>
     <main class="container main">
         <section class="hero">
             <h1 class="display hero-heading">
@@ -33,7 +30,7 @@
             </button>
         </section>
     </main>
-    <?php include __DIR__ . "/components/footer.php"; ?>
+    <?php require __DIR__ . '/components/footer.php'; ?>
 </body>
 
 </html>

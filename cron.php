@@ -3,8 +3,8 @@
 use App\Email;
 use App\User;
 
-require_once __DIR__ . "/src/user.php";
-require_once __DIR__ . "/src/email.php";
+require_once __DIR__ . '/src/user.php';
+require_once __DIR__ . '/src/email.php';
 
 if (isset($_GET['secret']) && $_GET['secret'] === $_ENV['CRON_SECRET']) {
     $user = new User('', '');

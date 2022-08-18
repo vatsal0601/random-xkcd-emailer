@@ -2,12 +2,13 @@
 
 use App\User;
 
-require_once __DIR__ . "/src/user.php";
+require_once __DIR__ . '/src/user.php';
 
 session_start();
 
 if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION['token'])) {
     header('Location: getting-started.php');
+    exit;
 }
 
 if (isset($_POST['verification-code'])) {
@@ -24,9 +25,9 @@ if (isset($_POST['verification-code'])) {
         }
         session_destroy();
         header('Location: success.php?type=subscribe');
+        exit;
     }
 }
-
 
 ?>
 
@@ -39,16 +40,13 @@ if (isset($_POST['verification-code'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emaaail - Token Verification</title>
     <link rel="icon" href="./assets/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <script src="./assets/js/token-verification.js" defer></script>
 </head>
 
 <body>
-    <?php include __DIR__ . "/components/navbar.php"; ?>
+    <?php require __DIR__ . '/components/navbar.php'; ?>
     <main class="container main">
         <section class="hero">
             <h1 class="display hero-heading">
@@ -75,7 +73,7 @@ if (isset($_POST['verification-code'])) {
             </form>
         </section>
     </main>
-    <?php include __DIR__ . "/components/footer.php"; ?>
+    <?php require __DIR__ . '/components/footer.php'; ?>
 </body>
 
 </html>
