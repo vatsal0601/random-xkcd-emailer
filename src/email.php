@@ -15,9 +15,16 @@ class Email
         $this->email = $email;
     }
 
+    private function get_random_comic_number(): string
+    {
+        $url = 'https://c.xkcd.com/random/comic';
+        $headers = get_headers($url, true);
+        return basename($headers['Location'][1]);
+    }
+
     public function get_random_comic(): array
     {
-        $random = mt_rand(1, 2500);
+        $random = $this->get_random_comic_number();
         $url = "https://xkcd.com/{$random}/info.0.json";
 
         $ch = curl_init();
